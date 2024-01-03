@@ -3,6 +3,7 @@ import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {themeColors} from '../theme';
 import {useNavigation} from '@react-navigation/native';
+import Loader from '../components/Loader';
 
 export default function WelcomeScreen() {
     const navigation = useNavigation();
@@ -27,12 +28,13 @@ export default function WelcomeScreen() {
                 <View className="space-y-4">
                     <TouchableOpacity
                         onPress={() => navigation.navigate('Signup')}
-                        className="py-3 mx-7 rounded-xl" style={{backgroundColor:themeColors.blue_1}}>
+                        className="py-3 mx-7 rounded-xl" style={{backgroundColor:themeColors.blue_1,position:"relative"}}>
                         <Text
                             className="text-xl font-bold text-center"
                             style={{color:themeColors.white_1}}
                         >
                             Sign Up
+                            <Loader></Loader>
                         </Text>
                     </TouchableOpacity>
                     <View className="flex-row justify-center">

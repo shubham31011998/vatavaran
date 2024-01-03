@@ -1,12 +1,26 @@
 import { View, Text, TouchableOpacity, Image, TextInput } from 'react-native'
-import React from 'react'
+import React, {useState} from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import {ArrowLeftIcon} from 'react-native-heroicons/solid'
 import { themeColors } from '../theme'
 import { useNavigation } from '@react-navigation/native'
+import {signInWithEmailAndPassword} from 'firebase/auth'
+import {auth} from '../config/firebase'
 
 export default function LoginScreen() {
   const navigation = useNavigation();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSignIn = async ()=>{
+    if(email && password){
+        try {
+            await signInWithEmailAndPassword(auth,email,password);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+  }
   return (
     <View className="flex-1 bg-white" style={{backgroundColor: themeColors.black_1}}>
       <SafeAreaView  className="flex ">
@@ -32,6 +46,8 @@ export default function LoginScreen() {
                 className="p-4 bg-black text-gray-400 rounded-2xl mb-3"
                 placeholder='Enter Email'
                 placeholderTextColor="gray"
+                value={email}
+                onChangeText={(value)=>setEmail(value)}
                 />
             <Text className="text-white font-bold ml-4">Password</Text>
             <TextInput 
@@ -39,6 +55,8 @@ export default function LoginScreen() {
               secureTextEntry
               placeholder="Enter Password"
               placeholderTextColor="gray"
+              value={password}
+              onChangeText={(value)=>setPassword(value)}
             />
             <TouchableOpacity className="flex items-end">
               <Text className="text-gray-400 mb-5">Forgot Password?</Text>
@@ -47,6 +65,7 @@ export default function LoginScreen() {
               className="py-3 rounded-xl" style={{backgroundColor:themeColors.blue_1}}>
                 <Text 
                     className="text-xl font-bold text-center text-white"
+                    onPress={handleSignIn}
                 >
                         Login
                 </Text>
