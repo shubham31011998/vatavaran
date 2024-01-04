@@ -22,7 +22,7 @@ const Loader = () => {
         rotateValueHolder.setValue(0);
         Animated.timing(rotateValueHolder, {
             toValue: 1,
-            duration: 500,
+            duration: 300,
             easing: Easing.linear,
             useNativeDriver: false,
         }).start(() => startImageRotateFunction());

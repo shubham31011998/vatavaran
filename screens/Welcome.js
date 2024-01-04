@@ -6,8 +6,15 @@ import { useNavigation } from '@react-navigation/native';
 import Loader from '../components/Loader';
 
 export default function WelcomeScreen() {
-    const [showLoader, setshowLoader] = useState(true);
+    const [showLoader, setshowLoader] = useState(false);
     const navigation = useNavigation();
+    const goToSignup = ()=>{
+        setshowLoader(true)
+        setTimeout(()=>{
+            setshowLoader(false)
+            navigation.navigate('Signup')
+        },1000);
+    }
     return (
         <SafeAreaView className="flex-1" style={{ backgroundColor: themeColors.black_1 }}>
             <View className="flex-1 flex justify-around my-4">
@@ -19,7 +26,7 @@ export default function WelcomeScreen() {
                 </View>
                 <View className="space-y-4">
                     <TouchableOpacity
-                        onPress={() => navigation.navigate('Signup')}
+                        onPress={goToSignup}
                         className="py-3 mx-7 rounded-xl" style={{ backgroundColor: themeColors.blue_1, position: "relative" }}>
                         {
                             showLoader
