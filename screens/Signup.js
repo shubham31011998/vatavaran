@@ -33,43 +33,43 @@ export default function Signup() {
       
     }
     return (
-        <View className="flex-1 " style={{backgroundColor: themeColors.black_1}}>
+        <View className="flex-1 " style={{backgroundColor: themeColors.white_1}}>
             <SafeAreaView className="flex">
                 <View className="flex-row justify-start">
                     <TouchableOpacity
                         onPress={() => navigation.goBack()}
                         className="p-2 rounded-tr-2xl rounded-bl-2xl ml-4"
-                        style={{backgroundColor: themeColors.blue_1}}
+                        style={{backgroundColor: themeColors.green_1}}
                     >
                         <ArrowLeftIcon size="20" color="white" />
                     </TouchableOpacity>
                 </View>
                 <View className="flex-row justify-center">
-                    <Image source={require('../assets/images/atmos2.png')}
+                    <Image source={require('../assets/images/welcome.png')}
                         style={{width: 165, height: 110, resizeMode: "contain"}} />
                 </View>
             </SafeAreaView>
             <View className="flex-1 px-8 pt-8"
-                style={{backgroundColor: themeColors.black_2, borderTopLeftRadius: 30, borderTopRightRadius: 30}}
+                style={{backgroundColor: themeColors.white_2, borderTopLeftRadius: 30, borderTopRightRadius: 30}}
             >
                 <View className="form space-y-2">
-                    <Text className="text-white font-bold">Full Name</Text>
+                    <Text className="font-bold">Full Name</Text>
                     <TextInput
-                        className="p-4 bg-black text-gray-400 rounded-2xl mb-3"
+                        className="p-4 bg-white rounded-2xl mb-3"
                         placeholder='Enter Name'
                         placeholderTextColor="gray"
                     />
-                    <Text className="text-white font-bold ml-4">Email Address</Text>
+                    <Text className="font-bold ml-4">Email Address</Text>
                     <TextInput
-                        className="p-4 bg-black text-gray-400 rounded-2xl mb-3"
+                        className="p-4 bg-white rounded-2xl mb-3"
                         placeholder='Enter Email'
                         placeholderTextColor="gray"
                         value={email}
                         onChangeText={(value) => setEmail(value)}
                     />
-                    <Text className="text-white font-bold ml-4">Password</Text>
+                    <Text className="font-bold ml-4">Password</Text>
                     <TextInput
-                        className="p-4 bg-black text-gray-400 rounded-2xl mb-7"
+                        className="p-4 bg-white rounded-2xl mb-7"
                         secureTextEntry
                         placeholder='Enter Password'
                         placeholderTextColor="gray"
@@ -78,7 +78,7 @@ export default function Signup() {
                     />
                     <TouchableOpacity
                         className="py-3 rounded-xl"
-                        style={{backgroundColor: themeColors.blue_1}}
+                        style={{backgroundColor: themeColors.green_1}}
                         onPress={handleSignup}
                     >
                         {
@@ -97,15 +97,15 @@ export default function Signup() {
                     Or
                 </Text>
                 <View className="flex-row justify-center space-x-12">
-                    <TouchableOpacity className="p-2 bg-gray-100 rounded-2xl">
+                    <TouchableOpacity className="p-2 bg-white rounded-2xl">
                         <Image source={require('../assets/icons/google.png')}
                             className="w-10 h-10" />
                     </TouchableOpacity>
-                    <TouchableOpacity className="p-2 bg-gray-100 rounded-2xl">
+                    <TouchableOpacity className="p-2 bg-white rounded-2xl">
                         <Image source={require('../assets/icons/apple.png')}
                             className="w-10 h-10" />
                     </TouchableOpacity>
-                    <TouchableOpacity className="p-2 bg-gray-100 rounded-2xl">
+                    <TouchableOpacity className="p-2 bg-white rounded-2xl">
                         <Image source={require('../assets/icons/facebook.png')}
                             className="w-10 h-10" />
                     </TouchableOpacity>
@@ -113,7 +113,7 @@ export default function Signup() {
                 <View className="flex-row justify-center mt-7">
                     <Text className="text-gray-500 font-semibold">Already have an account?</Text>
                     <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-                        <Text className="font-semibold text-yellow-500"> Login</Text>
+                        <Text className="font-semibold" style={{color:themeColors.green_1}}> Login</Text>
                     </TouchableOpacity>
                 </View>
             </View>

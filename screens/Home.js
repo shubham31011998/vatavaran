@@ -1,22 +1,46 @@
-import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native'
-import React from 'react'
+import {View, Text, SafeAreaView, TouchableOpacity} from 'react-native'
+import React, {useState} from 'react'
 import {signOut} from '@firebase/auth'
 import {auth} from '../config/firebase'
+import {themeColors} from '../theme'
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen'
+import {Image} from 'react-native'
+import {ArrowLeftIcon} from 'react-native-heroicons/solid'
+import Features from './Features'
 
 const Home = () => {
-    const handleLogout = async()=>{
-        await signOut(auth);
-    }
+  const [message, setMessage] = useState([])
+  const handleLogout = async () => {
+    await signOut(auth);
+  }
   return (
-    <SafeAreaView className="flex-1 flex-row justify-center items-center">
-      <Text className="text-lg">Home - </Text>
-      <TouchableOpacity
-        className="px-5 py-2 bg-red-400 rounded-lg"
-        onPress={handleLogout}
-      >
-        <Text className="text-white text-lg font-bold">Logout</Text>
-      </TouchableOpacity>
-    </SafeAreaView>
+    <View className="flex-1 bg-white">
+      <SafeAreaView className="flex flex-1 mx-5">
+      <View className="flex-row justify-start">
+          <TouchableOpacity
+              onPress={handleLogout}
+              className="p-2 rounded-tr-2xl rounded-bl-2xl ml-4"
+              style={{backgroundColor: themeColors.green_1}}
+          >
+              <ArrowLeftIcon size="20" color="white" />
+          </TouchableOpacity>
+      </View>
+
+        <View className="flex-row justify-center">
+          <Image source={require("../assets/images/welcome.png")} style={{width: hp(15), height: hp(15), resizeMode: 'contain'}} />
+        </View>
+
+        {
+          message.length > 0
+          ?
+          <View>
+
+          </View>
+          :
+          <Features/>
+        }
+      </SafeAreaView>
+    </View>
   )
 }
 
