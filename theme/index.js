@@ -5,5 +5,6 @@ export const themeColors = {
     black_1:"#000000",
     black_2:"#202124",
     green_1:"#005E38",
-    green_2:"#BFEEDC"
+    green_2:"#BFEEDC",
+    green_3:"#87DBBA"
  }   
