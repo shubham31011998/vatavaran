@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import { Animated, Text, View, Easing } from 'react-native';
+import { themeColors } from '../theme';
 
 const styles = StyleSheet.create({
     outer: {
@@ -8,9 +9,9 @@ const styles = StyleSheet.create({
         height: 25,
         borderRadius: 100,
         borderWidth: 5,
-        borderColor: "#4a8be0",
-        borderBottomColor: "#fff",
-        borderTopColor: "#fff",
+        borderColor: themeColors.green_1,
+        borderBottomColor: themeColors.green_3,
+        borderTopColor: themeColors.green_3,
         // position: 'absolute',
     }
 });
@@ -22,7 +23,7 @@ const Loader = () => {
         rotateValueHolder.setValue(0);
         Animated.timing(rotateValueHolder, {
             toValue: 1,
-            duration: 300,
+            duration: 500,
             easing: Easing.linear,
             useNativeDriver: false,
         }).start(() => startImageRotateFunction());
